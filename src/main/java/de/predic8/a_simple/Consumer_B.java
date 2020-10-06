@@ -19,6 +19,7 @@ public class Consumer_B {
         Properties props = new Properties();
         props.put(BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
         props.put(GROUP_ID_CONFIG, "notification");
+        props.put(CLIENT_ID_CONFIG, "b");
         props.put(ENABLE_AUTO_COMMIT_CONFIG, "true");
         props.put(AUTO_COMMIT_INTERVAL_MS_CONFIG, "1000");
         props.put(SESSION_TIMEOUT_MS_CONFIG, "30000");
@@ -39,8 +40,12 @@ public class Consumer_B {
             if (records.count() == 0)
                 continue;
 
-            for (ConsumerRecord<String, String> record : records)
-                System.out.printf("offset= %d, key= %s, value= %s\n", record.offset(), record.key(), record.value());
+                for (ConsumerRecord<String, String> record : records)
+                System.out.printf("partition=%d offset= %d, key= %s, value= %s\n",
+                record.partition(), 
+                record.offset(), 
+                record.key(), 
+                record.value());
 
         }
     }

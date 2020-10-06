@@ -33,7 +33,7 @@ public class SimpleProducer {
         long t1 = System.currentTimeMillis();
 
         int i = 0;
-        for(; i < 10; i++) {
+        for(; i < 1000; i++) {
 
             String key = String.valueOf(round(random() * 1000));
             double value = new Double(round(random()*10000000L)).intValue()/1000.0;
@@ -43,7 +43,7 @@ public class SimpleProducer {
                     .add("kw",value)
                     .build();
 
-            producer.send(new ProducerRecord<>("produktion", key, json.toString()));
+            producer.send(new ProducerRecord<>("retention_topic", key, json.toString()));
         }
         System.out.println("fertig " + i + " Nachrichten in " + (System.currentTimeMillis() - t1 + " ms"));
 

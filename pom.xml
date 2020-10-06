@@ -74,7 +74,7 @@
                         <archive>
                             <manifest>
                                 <addClasspath>true</addClasspath>
-                                <mainClass>de.predic8.a_simple.Consumer_A</mainClass>
+                                <mainClass>de.predic8.a_simple.SimpleProducer</mainClass>
                             </manifest>
                         </archive>
                     </configuration>
@@ -87,7 +87,7 @@
                         </descriptorRefs>
                         <archive>
                             <manifest>
-                                <mainClass>de.predic8.a_simple.Consumer_A</mainClass>
+                                <mainClass>de.predic8.a_simple.SimpleProducer</mainClass>
                             </manifest>
                         </archive>
                     </configuration>

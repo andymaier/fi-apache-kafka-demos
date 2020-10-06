@@ -18,7 +18,8 @@ public class RetentionDeleteConsumer {
 
         Properties props = new Properties();
         props.put(BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
-        props.put(GROUP_ID_CONFIG, "a");
+        props.put(CLIENT_ID_CONFIG, "retention");
+        props.put(GROUP_ID_CONFIG, "asd");
         props.put(ENABLE_AUTO_COMMIT_CONFIG, "true");
         props.put(AUTO_COMMIT_INTERVAL_MS_CONFIG, 1000);
         props.put(SESSION_TIMEOUT_MS_CONFIG, 30000);
@@ -27,7 +28,7 @@ public class RetentionDeleteConsumer {
 
         KafkaConsumer<String, String> consumer = new KafkaConsumer<>(props);
 
-        consumer.subscribe( singletonList("produktion"), new SeekToBeginningRebalanceListener(consumer));
+        consumer.subscribe( singletonList("retention_topic2"), new SeekToBeginningRebalanceListener(consumer));
 
         int num = 0;
         int numOld = -1;

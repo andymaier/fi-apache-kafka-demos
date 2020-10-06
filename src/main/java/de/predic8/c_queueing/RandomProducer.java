@@ -13,7 +13,7 @@ public class RandomProducer {
 
     public static void main(String[] args) {
 
-        Properties props = new Properties();
+        Properties props = new Properties();    
         props.put(BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
         props.put(ACKS_CONFIG, "all");
         props.put(RETRIES_CONFIG, 0);
@@ -27,8 +27,8 @@ public class RandomProducer {
         org.apache.kafka.clients.producer.Producer<Long, String> producer = new KafkaProducer<>(props);
 
         System.out.println("Start sending!");
-        for(int i = 1; i <= 12; i++) {
-            producer.send(new ProducerRecord<>("produktion", round(random() * 6) + 1, "Message: " + i));
+        for(int i = 1; i <= 40; i++) {
+            producer.send(new ProducerRecord<>("produktion", round(random() * 12) + 1, "Message: " + i));
         }
         System.out.println("done!");
 

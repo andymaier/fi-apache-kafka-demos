@@ -35,7 +35,7 @@ public class SimpleProducer {
         for(int i = 1; i <= 10000; i++) {
             int key = i % 10;
 
-            producer.send(new ProducerRecord<>("produktion", Integer.toString(i % 12), muell));
+            producer.send(new ProducerRecord<>("retention_topic2", Integer.toString(i % 12), muell));
 
             if(i % 500 == 0) {
                 Thread.sleep(1000);

@@ -13,7 +13,7 @@ log.retention.check.interval.ms=1000
 
 # Durchführung
 
-1. ./setup-delete.sh
+1. ./setup-retention.sh
 1. log/node-0/produktion/* zeigen => 0.log => Keine Nachrichten
 1. exec SimpleProducer
 1. log/node-0/produktion/* zeigen => viele Dateien
